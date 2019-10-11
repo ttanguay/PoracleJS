@@ -1,0 +1,18 @@
+FROM node:8.16-alpine
+
+WORKDIR /PoracleJS
+
+COPY package.json .
+
+RUN apk --no-cache --update --virtual build-dependencies add \
+    gnupg \
+    bzip2 \
+    python \
+    make \
+    g++ \
+    && npm install \
+    && apk del build-dependencies
+
+COPY . .
+
+CMD [ "npm", "start"]

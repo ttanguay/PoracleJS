@@ -1,0 +1,17 @@
+FROM ubuntu:18.10
+
+# CURL
+RUN apt-get -y update && apt-get install -y curl gnupg2
+
+# NodeJS
+RUN curl -sL https://deb.nodesource.com/setup_8.x | bash - && apt-get -y update && apt-get install -y nodejs
+
+WORKDIR /PoracleJS
+
+COPY package.json .
+
+RUN npm install
+
+COPY . .
+
+CMD [ "npm", "start"]

@@ -1,0 +1,13 @@
+FROM node:8.16
+
+RUN apt-get -y update && apt-get install -y gnupg2
+
+WORKDIR /PoracleJS
+
+COPY package.json .
+
+RUN npm install
+
+COPY . .
+
+CMD [ "npm", "start"]

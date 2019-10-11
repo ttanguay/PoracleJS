@@ -1,0 +1,28 @@
+# Git
+.git
+.gitignore
+
+# Docker configuration
+Dockerfile
+Dockerfile-*
+docker-compose.yml
+
+# NPM dependencies
+node_modules
+
+#config
+config/*.json
+config/examples/*
+config/default.json
+config/custom-environment-variables.json
+.env
+
+#images
+src/util/images
+
+# other
+docs
+logs/*.json
+build
+npm-debug.log
+
