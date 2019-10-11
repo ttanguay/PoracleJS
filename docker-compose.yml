@@ -15,8 +15,17 @@ services:
       HOST: 0.0.0.0
     ports:
       - 3030:3030
+#    network_mode: "host"
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "50MB"
+        max-file: "10"
     volumes:
       - ./config/:/PoracleJS/config/
+      - ./.cache/:/PoracleJS/.cache/
+      - ./filterBackups/:/PoracleJS/src/helpers/commando/commands/filterBackups/
+#      - /etc/localtime:/etc/localtime:ro
     depends_on:
       - poracle-db
 
